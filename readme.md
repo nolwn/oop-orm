@@ -10,6 +10,8 @@ This is a project designed to get you to write your own simple ORM.
 
 1. `createdb oop_orm_dev && createdb oop_orm_test`
 
+1. `cp .env.sample .env`
+
 1. `npm run migrate`
 
 1. `npm run seed`

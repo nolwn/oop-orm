@@ -4,6 +4,8 @@ const { PORT = 5000, NODE_ENV = 'development' } = process.env
 if (NODE_ENV === 'development') app.use(require('morgan')('dev'))
 app.use(require('body-parser').json())
 
+app.use('/api/theatres', require('./routes/theatres'))
+
 app.get('/ping', (req, res, next) => {
   res.json({ message: 'pong!' })
 })
@@ -20,5 +22,9 @@ app.use((err, req, res, next) => {
   const { status = 500, message = `Something went wrong` } = err
   res.status(status).json({ status, message })
 })
+
+if (NODE_ENV !== 'test') {
+  app.listen(PORT, () => console.log(`Listening on port ${PORT}`))
+}
 
 module.exports = app

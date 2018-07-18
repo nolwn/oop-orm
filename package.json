@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "dev": "nodemon src",
     "knex": "knex",
     "migrate": "npm run knex migrate:latest",
     "rollback": "npm run knex migrate:rollback",

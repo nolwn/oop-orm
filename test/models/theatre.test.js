@@ -161,4 +161,20 @@ describe('Theatre Model', function () {
       .catch(error => expect(error).to.be.ok)
     })
   })
+
+  xdescribe('BONUS: .valid', function () {
+    it('should return true if the created theatre is valid', function () {
+      const name = 'My New Name'
+      const address = 'My New Address'
+      
+      const theatre = new Theatre({ name, address })
+      expect(theatre.valid).to.be.true
+    })
+    it('should return false if the theatre is invalid', function () {
+      const name = 'My New Name'
+
+      const theatre = new Theatre({ name })
+      expect(theatre.valid).to.be.false
+    })
+  })
 })

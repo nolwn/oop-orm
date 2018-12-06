@@ -176,5 +176,11 @@ describe('Theatre Model', function () {
       const theatre = new Theatre({ name })
       expect(theatre.valid).to.be.false
     })
+    it('should throw an error if you try and set the valid attribute manually', function () {
+      const theatre = new Theatre({ name: 'Name', })
+      const actual = () => theatre.valid = true
+
+      expect(actual).to.throw()
+    })
   })
 })

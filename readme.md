@@ -25,12 +25,14 @@ For this exercise you will _only_ be creating the Model for a **Theatre**. Theat
 **GET ALL**
 ```js
 const theatres = await Theatre.all()
+// or, Theatre.all().then(theatres => ...)
 // [ { ... }, { ... }, { ... } ]
 ```
 
 **GET ONE**
 ```js
 const theatres = await Theatre.find(1)
+// or, Theatre.find(1).then(theatres => ...)
 // { ... }
 ```
 
@@ -38,6 +40,7 @@ const theatres = await Theatre.find(1)
 ```js
 const theatre = new Theatre({ name: 'My Theatre', address: '123 Main Street' })
 await theatre.save()
+// or, theatre.save().then(theatre => ...)
 // { id: xx, name: 'My Theatre', address: '123 Main Street' }
 ```
 
@@ -46,6 +49,7 @@ await theatre.save()
 const theatre = await Theatre.find(1)
 theatre.name = 'My New Name'
 await theatre.save()
+// or, theatre.save().then(theatre => ...)
 // { id: 1, name: 'My New Name', ... }
 ```
 
@@ -53,6 +57,7 @@ await theatre.save()
 ```js
 const theatre = await Theatre.find(1)
 await theatre.destroy()
+// or, theatre.destroy().then(theatre => ...)
 // { id: 1, ... }
 ```
 

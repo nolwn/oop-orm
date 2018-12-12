@@ -5,6 +5,6 @@ router.get('/', ctrl.index)
 router.get('/:id', ctrl.show)
 router.post('/', ctrl.create)
 router.put('/:id', ctrl.update)
-router.delete('/', ctrl.destroy)
+router.delete('/:id', ctrl.destroy)
 
 module.exports = router

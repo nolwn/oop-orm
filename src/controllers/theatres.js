@@ -34,9 +34,11 @@ function update (req, res, next) {
     if (name) theatre.name = name
     if (address) theatre.address = address
     
-    return theatre.save().catch(({ message }) => {
-      next({ status: 400, message })
-    })
+    return theatre.save()
+  }).then(theatre => {
+    res.json({ response: theatre })
+  }).catch(({ message }) => {
+    next({ status: 400, message })
   })
 }
 

@@ -8,6 +8,8 @@ app.get('/ping', (req, res, next) => {
   res.json({ message: 'pong!' })
 })
 
+app.use('/api/theatres', require('./routes/theatres'))
+
 app.use((req, res, next) => {
   const status = 404
   const message = `Could not ${req.method} ${req.path}`
@@ -21,4 +23,8 @@ app.use((err, req, res, next) => {
   res.status(status).json({ status, message })
 })
 
-module.exports = app
+if (process.env.NODE_ENV === 'test') {
+  module.exports = app
+} else {
+  app.listen(PORT, () => console.log(`Listening on port ${PORT}!`))
+}
